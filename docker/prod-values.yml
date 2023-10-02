@@ -74,7 +74,7 @@ externalSecrets:
   enabled: true
   secrets:
     - name: apps.zoom.uw.edu-secrets
-      externalKey: zoom/prod/secrets
+      externalKey: zoom-utils/prod/secrets
       data:
         - name: django-secret
           property: django-secret
@@ -83,12 +83,12 @@ externalSecrets:
         - name: storage-bucket-name
           property: storage-bucket-name
     - name: apps.zoom.uw.edu-gcs-credentials
-      externalKey: zoom/prod/gcs-credentials
+      externalKey: zoom-utils/prod/gcs-credentials
       data:
         - name: credentials.json
           property: credentials.json
     - name: apps.zoom.uw.edu-ic-certs
-      externalKey: zoom/prod/ic-certs
+      externalKey: zoom-utils/prod/ic-certs
       data:
         - name: apps.zoom.uw.edu-ic.cert
           property: apps.zoom.uw.edu-ic.cert
