@@ -5,7 +5,7 @@ INSTALLED_APPS += [
 ]
 
 # If you have file data, define the path here
-# DATA_ROOT = os.path.join(BASE_DIR, "app_name/data")
+# DATA_ROOT = os.path.join(BASE_DIR, "zoom_utilities/data")
 
 GOOGLE_ANALYTICS_KEY = os.getenv("GOOGLE_ANALYTICS_KEY", default=" ")
 
@@ -20,9 +20,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "app_name.context_processors.google_analytics",
-                "app_name.context_processors.django_debug",
-                # "app_name.context_processors.auth_user",
+                "zoom_utilities.context_processors.google_analytics",
+                "zoom_utilities.context_processors.django_debug",
+                # "zoom_utilities.context_processors.auth_user",
             ],
         },
     }
@@ -34,7 +34,7 @@ if os.getenv("ENV") == "localdev":
 
 if os.getenv("ENV") == "localdev":
     VITE_MANIFEST_PATH = os.path.join(
-        BASE_DIR, "app_name", "static", "manifest.json"
+        BASE_DIR, "zoom_utilities", "static", "manifest.json"
     )
 else:
     VITE_MANIFEST_PATH = os.path.join(os.sep, "static", "manifest.json")

@@ -24,7 +24,7 @@ RUN npm run build
 
 FROM app-prebundler-container as app-container
 
-COPY --chown=acait:acait --from=node-bundler /app/app_name/static /app/app_name/static
+COPY --chown=acait:acait --from=node-bundler /app/zoom_utilities/static /app/zoom_utilities/static
 
 RUN /app/bin/python manage.py collectstatic --noinput
 

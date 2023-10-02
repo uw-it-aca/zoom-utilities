@@ -1,4 +1,4 @@
 from .base_urls import *
 from django.urls import re_path, include
 
-urlpatterns += [re_path(r"^", include("app_name.urls"))]
+urlpatterns += [re_path(r"^", include("zoom_utilities.urls"))]
