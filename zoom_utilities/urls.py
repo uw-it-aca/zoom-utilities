@@ -4,7 +4,7 @@
 from django.conf import settings
 from django.urls import re_path
 from django.views.generic import TemplateView
-from zoom_utilities.views.pages import DefaultPageView
+from zoom_utilities.views.pages import HomeView
 
 
 # start with an empty url array
@@ -27,7 +27,5 @@ if settings.DEBUG:
 
 urlpatterns += [
     # add api endpoints here
-    # add default Vue page routes here
-    re_path(r"^(customize|page2|page3)$", DefaultPageView.as_view()),
-    re_path(r"^$", DefaultPageView.as_view()),
+    re_path(r"^$", HomeView.as_view(), name='index'),
 ]
