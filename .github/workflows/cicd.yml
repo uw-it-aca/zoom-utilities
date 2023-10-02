@@ -33,7 +33,7 @@ name: Build, Test and Deploy
 
 env:
   # Release name must match "repo" value in docker/*-values.yml
-  RELEASE_NAME: zoom-utils
+  RELEASE_NAME: zoom-utilities
   DJANGO_APP: zoom_utilities
 
 # Be sure that branches defined here have corresponding steps
