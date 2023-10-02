@@ -1,7 +1,7 @@
 from .base_settings import *
 
 INSTALLED_APPS += [
-    "app_name.apps.AppNameConfig",
+    "zoom_utilities.apps.ZoomUtilitiesConfig",
 ]
 
 # If you have file data, define the path here

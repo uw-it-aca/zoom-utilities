@@ -1,8 +1,8 @@
 [run]
-source = app_name
+source = zoom_utilities
 parallel = True
 
 [paths]
 source =
-  app_name/
-  /app/app_name/
+  zoom_utilities/
+  /app/zoom_utilities/

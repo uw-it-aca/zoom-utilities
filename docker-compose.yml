@@ -6,11 +6,11 @@ services:
       context: .
       target: app-container
     restart: always
-    container_name: app_name_app
+    container_name: zoom_utilities_app
     environment:
       - GOOGLE_ANALYTICS_KEY=${GOOGLE_ANALYTICS_KEY}
     volumes:
-      - ./app_name:/app/app_name
+      - ./zoom_utilities:/app/zoom_utilities
       - statics-volume:/static
     ports:
       - "${RUNSERVER_PORT:-8000}:8000"
@@ -21,15 +21,15 @@ services:
       context: .
       target: node-bundler
     restart: always
-    container_name: app_name_node
+    container_name: zoom_utilities_node
     ports:
       - "${BUNDLE_ANALYZER_PORT:-8888}:8888" # Required when environment.BUNDLE_ANALYZER is true
     environment:
       VUE_DEVTOOLS: "True"
       BUNDLE_ANALYZER: "True"
     volumes:
-      - ./app_name:/app/app_name # expose main django app so vite can output bundles here
-      - ./app_name_vue:/app/app_name_vue
+      - ./zoom_utilities:/app/zoom_utilities # expose main django app so vite can output bundles here
+      - ./zoom_utilities_vue:/app/zoom_utilities_vue
       - statics-volume:/static
     command: npm run watch
     stdin_open: true
