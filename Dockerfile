@@ -5,8 +5,8 @@ FROM us-docker.pkg.dev/uwit-mci-axdd/containers/django-container:${DJANGO_CONTAI
 ADD --chown=acait:acait . /app/
 ADD --chown=acait:acait docker/ /app/project/
 
-#ADD --chown=acait:acait docker/app_start.sh /scripts
-#RUN chmod u+x /scripts/app_start.sh
+ADD --chown=acait:acait docker/app_start.sh /scripts
+RUN chmod u+x /scripts/app_start.sh
 
 RUN /app/bin/pip install -r requirements.txt
 
@@ -28,7 +28,7 @@ COPY --chown=acait:acait --from=node-bundler /app/zoom_utilities/static /app/zoo
 
 RUN /app/bin/python manage.py collectstatic --noinput
 
-FROM us-docker.pkg.dev/uwit-mci-axdd/containers/django-container:${DJANGO_CONTAINER_VERSION} as app-test-container
+FROM us-docker.pkg.dev/uwit-mci-axdd/containers/django-test-container:${DJANGO_CONTAINER_VERSION} as app-test-container
 
 ENV NODE_PATH=/app/lib/node_modules
 COPY --from=app-container /app/ /app/
