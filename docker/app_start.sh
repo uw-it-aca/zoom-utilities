@@ -1,6 +1,7 @@
 if [ "$ENV"  = "localdev" ]
 then
 
-  . /scripts/app_deploy.sh
+  source "/app/bin/activate"
+  cd /app
 
 fi

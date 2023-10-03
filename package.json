@@ -1,7 +1,7 @@
 {
-  "name": "app_name",
+  "name": "zoom_utilities",
   "version": "1.0.0",
-  "description": "app_name some description text",
+  "description": "Zoom utilities",
   "scripts": {
     "build": "vite build",
     "watch": "vite build --watch --mode development",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uw-it-aca/app_name.git"
+    "url": "git+https://github.com/uw-it-aca/zoom-utilities.git"
   },
   "author": "Your Name Here",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/uw-it-aca/app_name/issues"
+    "url": "https://github.com/uw-it-aca/zoom-utilities/issues"
   },
-  "homepage": "https://github.com/uw-it-aca/app_name#readme",
+  "homepage": "https://github.com/uw-it-aca/zoom-utilities#readme",
   "dependencies": {
     "@popperjs/core": "^2.9.2",
     "axdd-components": "git+https://github.com/uw-it-aca/axdd-components.git#1.0.6",
