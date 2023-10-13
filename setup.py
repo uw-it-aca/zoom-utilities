@@ -25,7 +25,7 @@ setup(
     include_package_data=True,
     install_requires=[
         "django~=4.2",
-        'django-storages[google]>=1.10',
+        'django-storages[google]',
         'UW-RestClients-Core~=1.4',
         'UW-RestClients-Zoom~=0.1',
         'UW-RestClients-GWS~=2.3',
