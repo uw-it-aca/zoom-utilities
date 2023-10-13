@@ -32,17 +32,25 @@ TEMPLATES = [
 
 if os.getenv("ENV", "localdev") == "localdev":
     DEBUG = True
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
     MEDIA_ROOT = os.getenv('MEDIA_ROOT', '/app/data')
     VITE_MANIFEST_PATH = os.path.join(
         BASE_DIR, "zoom_utilities", "static", "manifest.json"
     )
 else:
     VITE_MANIFEST_PATH = os.path.join(os.sep, "static", "manifest.json")
-    #DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    #GS_PROJECT_ID = os.getenv('STORAGE_PROJECT_ID', '')
-    #GS_BUCKET_NAME = os.getenv('STORAGE_BUCKET_NAME', '')
-    #GS_LOCATION = os.path.join(os.getenv('STORAGE_DATA_ROOT', ''))
-    #GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    #    '/gcs/credentials.json')
     CSRF_TRUSTED_ORIGINS = ['https://' + os.getenv('CLUSTER_CNAME')]
+    STORAGES = {
+        'default': {
+            'BACKEND': 'storages.backends.gcloud.GoogleCloudStorage',
+            'OPTIONS': {
+                'project_id': os.getenv('STORAGE_PROJECT_ID', ''),
+                'bucket_name': os.getenv('STORAGE_BUCKET_NAME', ''),
+                'location': os.path.join(os.getenv('STORAGE_DATA_ROOT', '')),
+                'credentials': service_account.Credentials.from_service_account_file(
+                    '/gcs/credentials.json'),
+            }
+        },
+        'staticfiles': {
+            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+        },
+    }

@@ -30,17 +30,23 @@ lifecycle:
 readiness:
   enabled: true
 
+externalService:
+  enabled: true
+  name: zoom-db-service
+  type: ClusterIP
+  serviceAddress: 172.18.1.204
+  servicePort: 5432
 database:
-  engine: null
+  engine: postgres
+  name: zoom-utils-prod
+  hostname: zoom-db-service
+  secretName: apps.zoom.uw.edu-sql-secrets
 
 repo: zoom-utilities
 instance: prod
 
 memcached:
-  enabled: true
-  replicaCount: 2
-  updateStrategy:
-    type: RollingUpdate
+  enabled: false
 
 gcsCredentials:
   mounted: true
@@ -61,8 +67,6 @@ environmentVariables:
     value: https://apps.zoom.uw.edu/saml2
   - name: ENV
     value: prod
-  - name: SESSION_BACKEND
-    value: MEMCACHED
 
 cronjob:
   enabled: false
@@ -82,6 +86,13 @@ externalSecrets:
           property: storage-project-id
         - name: storage-bucket-name
           property: storage-bucket-name
+    - name: apps.zoom.uw.edu-sql-secrets
+      externalKey: zoom-utils/prod/sql-secrets
+      data:
+        - name: username
+          property: username
+        - name: password
+          property: password
     - name: apps.zoom.uw.edu-gcs-credentials
       externalKey: zoom-utils/prod/gcs-credentials
       data:
