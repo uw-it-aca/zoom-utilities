@@ -15,10 +15,5 @@ class HomeView(TemplateView):
         return context
 
 
-@method_decorator(login_required, name='dispatch')
-class EpicUsageView(TemplateView):
+class EpicUsageView(HomeView):
     template_name = "epic_usage.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
