@@ -9,7 +9,7 @@ def read_file(path):
     if not default_storage.exists(path):
         raise ObjectDoesNotExist()
 
-    with default_storage.open(path, mode='r') as f:
+    with default_storage.open(path, mode='rb') as f:
         content = f.read()
 
     return content
