@@ -18,7 +18,7 @@ class ImageAPI(View):
     def get(self, request, *args, **kwargs):
         filename = kwargs.get('filename')
         try:
-            response = FileResponse(default_storage.open(filename, mode='rb')
+            response = FileResponse(default_storage.open(filename, mode='rb'),
                                     content_type='image/jpeg')
             now = datetime.utcnow()
             expires = now + timedelta(seconds=self.cache_time)
