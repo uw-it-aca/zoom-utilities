@@ -13,3 +13,12 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+@method_decorator(login_required, name='dispatch')
+class EpicUsageView(TemplateView):
+    template_name = "epic_usage.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

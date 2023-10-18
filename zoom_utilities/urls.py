@@ -5,6 +5,7 @@ from django.conf import settings
 from django.urls import re_path
 from django.views.generic import TemplateView
 from zoom_utilities.views.pages import HomeView
+from zoom_utilities.views.pages import EpicUsageView
 
 
 # start with an empty url array
@@ -28,4 +29,5 @@ if settings.DEBUG:
 urlpatterns += [
     # add api endpoints here
     re_path(r"^$", HomeView.as_view(), name='index'),
+    re_path(r"^epic_usage$", EpicUsageView.as_view(), name='index'),
 ]
