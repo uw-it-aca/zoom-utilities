@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 
 
 @method_decorator(login_required, name='dispatch')
-class Image(View):
+class ImageAPI(View):
     cache_time = 60 * 60 * 4
     date_format = '%a, %d %b %Y %H:%M:%S GMT'
 
