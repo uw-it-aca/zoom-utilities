@@ -20,7 +20,7 @@ setup(
     name="zoom_utilities",
     version=VERSION,
     packages=[],
-    author="UW-IT AXDD",
+    author="UW-IT T&LS",
     author_email="aca-it@uw.edu",
     include_package_data=True,
     install_requires=[
