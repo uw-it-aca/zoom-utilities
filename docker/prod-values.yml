@@ -58,6 +58,21 @@ certs:
   keyPath: /certs/apps.zoom.uw.edu-ic.key
   secretName: apps.zoom.uw.edu-ic-certs
 
+cronjob:
+  enabled: true
+  jobs:
+    - name: test1
+      schedule: "0,12,24,36,48 14-23 * * 1-5"
+      command: ["/scripts/management_command.sh"]
+      args: ["test"]
+      resources:
+        limits:
+          cpu: 200m
+          memory: 384Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+
 environmentVariables:
   - name: CLUSTER_CNAME
     value: apps.zoom.uw.edu
