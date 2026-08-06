@@ -1,12 +1,12 @@
-# Copyright 2023 UW-IT, University of Washington
+# Copyright 2026 UWIT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
 from django.conf import settings
 from django.urls import re_path
 from django.views.generic import TemplateView
-from zoom_utilities.views.pages import HomeView, EpicUsageView
-from zoom_utilities.views.api import ImageAPI
 
+from zoom_utilities.views.api import ImageAPI
+from zoom_utilities.views.pages import EpicUsageView, HomeView
 
 # start with an empty url array
 urlpatterns = []

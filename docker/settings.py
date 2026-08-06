@@ -34,10 +34,10 @@ if os.getenv("ENV", "localdev") == "localdev":
     DEBUG = True
     MEDIA_ROOT = os.getenv('MEDIA_ROOT', '/app/data')
     VITE_MANIFEST_PATH = os.path.join(
-        BASE_DIR, "zoom_utilities", "static", "manifest.json"
+        BASE_DIR, "zoom_utilities", "static", ".vite", "manifest.json"
     )
 else:
-    VITE_MANIFEST_PATH = os.path.join(os.sep, "static", "manifest.json")
+    VITE_MANIFEST_PATH = os.path.join(os.sep, "static", ".vite", "manifest.json")
     CSRF_TRUSTED_ORIGINS = ['https://' + os.getenv('CLUSTER_CNAME')]
     STORAGES = {
         'default': {

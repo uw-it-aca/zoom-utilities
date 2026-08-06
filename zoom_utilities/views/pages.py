@@ -1,9 +1,9 @@
-# Copyright 2023 UW-IT, University of Washington
+# Copyright 2026 UWIT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
-from django.views.generic import TemplateView
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.views.generic import TemplateView
 
 
 @method_decorator(login_required, name='dispatch')

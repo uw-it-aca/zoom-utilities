@@ -8,7 +8,8 @@ services:
     restart: always
     container_name: zoom_utilities_app
     environment:
-      - GOOGLE_ANALYTICS_KEY=${GOOGLE_ANALYTICS_KEY}
+      ENV: localdev
+      AUTH: SAML_MOCK
     volumes:
       - ./zoom_utilities:/app/zoom_utilities
       - statics-volume:/static

@@ -44,6 +44,8 @@ database:
 
 repo: zoom-utilities
 instance: prod
+namespace:
+  enabled: true
 
 memcached:
   enabled: false
@@ -73,6 +75,9 @@ cronjob:
           cpu: 100m
           memory: 128Mi
 
+daemon:
+  enabled: false
+
 environmentVariables:
   - name: CLUSTER_CNAME
     value: apps.zoom.uw.edu
@@ -82,12 +87,6 @@ environmentVariables:
     value: https://apps.zoom.uw.edu/saml2
   - name: ENV
     value: prod
-
-cronjob:
-  enabled: false
-
-daemon:
-  enabled: false
 
 externalSecrets:
   enabled: true

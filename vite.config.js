@@ -1,19 +1,18 @@
 import { fileURLToPath, URL } from "url";
-
-import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // MARK: start vite build config
 
   // vite creates a manifest and assets during the build process (local and prod)
-  // django collectstatics will put assets in '/static/zoom_utilities/assets'
+  // django collectstatics will put assets in '/static/app_name/assets'
   // django will put the manifest in '/static/manifest.json'
-  // vite manifest prefaces all files with the path 'zoom_utilities/assets/xxxx'
+  // vite manifest prefaces all files with the path 'app_name/assets/xxxx'
   build: {
     manifest: true,
-    rollupOptions: {
+    rolldownOptions: {
       input: [
         // list all entry points
         "./zoom_utilities_vue/main.js",
@@ -26,10 +25,20 @@ export default defineConfig({
   base: "/static/", // allows for proper css url path creation during the build process
 
   // MARK: standard vite/vue plugin and resolver config
-  plugins: [vue()],
+  plugins: [
+    vue(),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./zoom_utilities_vue", import.meta.url)),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true,
+        silenceDeprecations: ["global-builtin", "import"], // silence bootstrap5 related deprecations
+      },
     },
   },
 });
