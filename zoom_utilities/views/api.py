@@ -1,13 +1,13 @@
-# Copyright 2023 UW-IT, University of Washington
+# Copyright 2026 UWIT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
-from django.conf import settings
-from django.core.files.storage import default_storage
-from django.http import HttpResponse, FileResponse
-from django.views import View
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
 from datetime import datetime, timedelta
+
+from django.contrib.auth.decorators import login_required
+from django.core.files.storage import default_storage
+from django.http import FileResponse, HttpResponse
+from django.utils.decorators import method_decorator
+from django.views import View
 
 
 @method_decorator(login_required, name='dispatch')
@@ -20,10 +20,9 @@ class ImageAPI(View):
         try:
             response = FileResponse(default_storage.open(filename, mode='rb'),
                                     content_type='image/jpeg')
-            now = datetime.utcnow()
+            now = datetime.now(datetime.UTC)
             expires = now + timedelta(seconds=self.cache_time)
-            response['Cache-Control'] = 'public,max-age={}'.format(
-                self.cache_time)
+            response['Cache-Control'] = f'public,max-age={self.cache_time}'
             response['Expires'] = expires.strftime(self.date_format)
             response['Last-Modified'] = now.strftime(self.date_format)
             return response

@@ -1,9 +1,9 @@
-# Copyright 2023 UW-IT, University of Washington
+# Copyright 2026 UWIT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
 from uw_zoom.accounts import Accounts
-from uw_zoom.users import Users
 from uw_zoom.models import ZoomUser
+from uw_zoom.users import Users
 
 
 def get_sub_accounts():
