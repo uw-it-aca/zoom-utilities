@@ -10,15 +10,13 @@
     <template #description>
       <div class="p-0 col-md-8 lead">
         <p>
-          <a href="https://github.com/uw-it-aca/axdd-django-vue"
-            >AXDD-Django-Vue</a
+          <a href="https://github.com/uw-it-aca/django-vue"
+            >Django-Vue</a
           >
-          is a high-opinionated template repository created and used by AXDD to
+          is a high-opinionated template repository created and used by UWIT to
           make our build processes consistent and repeatable through established
           patterns across our CICD architecture.
         </p>
-
-        <HelloWorld />
       </div>
     </template>
 
@@ -79,9 +77,9 @@
             <li>Stylelint for CSS</li>
           </ul>
 
-          <h2>AXDD Libraries</h2>
+          <h2>Libraries</h2>
           <p>
-            The following is a list of specific AXDD libraries used in building
+            The following is a list of specific libraries used in building
             applications.
           </p>
           <ul>
@@ -89,14 +87,14 @@
               <a
                 href="https://github.com/uw-it-aca/django-container"
                 target="_blank"
-                >Django-Container (1.4.1)</a
+                >Django-Container (3.1.2)</a
               >
             </li>
             <li>
               <a
-                href="https://github.com/uw-it-aca/axdd-components"
+                href="https://github.com/uw-it-aca/solstice-vue"
                 target="_blank"
-                >AXDD-Components (1.0.6)</a
+                >Solstice-Vue</a
               >
             </li>
           </ul>
@@ -111,10 +109,6 @@
             this repository.
           </p>
           <ul>
-            <li>
-              <a href="https://axios-http.com/" target="_blank">axios</a> (data
-              fetching)
-            </li>
             <li>
               <a href="https://pinia.vuejs.org/" target="_blank">pinia</a>
               (state management, formerly vuex)
@@ -148,13 +142,11 @@
 
 <script>
 import Layout from "@/layout.vue";
-//import HelloWorld from "@/components/hello-world.vue";
 
 export default {
   name: "PagesHome",
   components: {
     layout: Layout,
-    //HelloWorld,
   },
   data() {
     return {
