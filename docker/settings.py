@@ -3,6 +3,7 @@ from google.oauth2 import service_account
 import os
 
 INSTALLED_APPS += [
+    "zoom_utilities.apps.ZoomUtilitiesFilesConfig",
     "zoom_utilities.apps.ZoomUtilitiesConfig",
 ]
 
@@ -32,25 +33,25 @@ TEMPLATES = [
 
 if os.getenv("ENV", "localdev") == "localdev":
     DEBUG = True
-    MEDIA_ROOT = os.getenv('MEDIA_ROOT', '/app/data')
+    MEDIA_ROOT = os.getenv("MEDIA_ROOT", "/app/data")
     VITE_MANIFEST_PATH = os.path.join(
         BASE_DIR, "zoom_utilities", "static", ".vite", "manifest.json"
     )
 else:
     VITE_MANIFEST_PATH = os.path.join(os.sep, "static", ".vite", "manifest.json")
-    CSRF_TRUSTED_ORIGINS = ['https://' + os.getenv('CLUSTER_CNAME')]
+    CSRF_TRUSTED_ORIGINS = ["https://" + os.getenv("CLUSTER_CNAME")]
     STORAGES = {
-        'default': {
-            'BACKEND': 'storages.backends.gcloud.GoogleCloudStorage',
-            'OPTIONS': {
-                'project_id': os.getenv('STORAGE_PROJECT_ID', ''),
-                'bucket_name': os.getenv('STORAGE_BUCKET_NAME', ''),
-                'location': os.path.join(os.getenv('STORAGE_DATA_ROOT', '')),
-                'credentials': service_account.Credentials.from_service_account_file(
-                    '/gcs/credentials.json'),
+        "default": {
+            "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+            "OPTIONS": {
+                "project_id": os.getenv("STORAGE_PROJECT_ID", ""),
+                "bucket_name": os.getenv("STORAGE_BUCKET_NAME", ""),
+                "location": os.path.join(os.getenv("STORAGE_DATA_ROOT", "")),
+                "credentials": service_account.Credentials.from_service_account_file(
+                    "/gcs/credentials.json"),
             }
         },
-        'staticfiles': {
-            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
         },
     }
