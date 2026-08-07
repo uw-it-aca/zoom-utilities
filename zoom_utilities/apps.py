@@ -7,7 +7,7 @@ from django.contrib.staticfiles.apps import StaticFilesConfig
 
 
 class ZoomUtilitiesFilesConfig(StaticFilesConfig):
-    ignore_patterns = ["CVS", "*~"]
+    ignore_patterns = ["CVS", "*~"]  # noqa: RUF012
 
 
 class ZoomUtilitiesConfig(AppConfig):

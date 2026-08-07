@@ -6,6 +6,7 @@ INSTALLED_APPS += [
     "zoom_utilities.apps.ZoomUtilitiesFilesConfig",
     "zoom_utilities.apps.ZoomUtilitiesConfig",
 ]
+INSTALLED_APPS.remove('django.contrib.staticfiles')
 
 # If you have file data, define the path here
 # DATA_ROOT = os.path.join(BASE_DIR, "zoom_utilities/data")
