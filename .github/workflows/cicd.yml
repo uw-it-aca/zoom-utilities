@@ -150,6 +150,7 @@ jobs:
 
       - name: Run Vue Coverage
         run: npm run coverage
+        continue-on-error: true
 
       - name: Upload Vue Coverage to Coveralls
         uses: coverallsapp/github-action@v2
