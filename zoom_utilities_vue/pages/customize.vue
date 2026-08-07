@@ -45,10 +45,8 @@
             Single-file components in Vue make up the building blocks of all
             applications. These components are located in the
             <code>/components</code>
-            directory. The following <code>hello-world.vue</code> file is an
-            example of a very simple component.
+            directory.
           </p>
-          <hello-world />
         </div>
         <div class="col-md-6">fasdasdf</div>
         <div class="col-md-6">
@@ -79,14 +77,12 @@
 
 <script>
 import Layout from "@/layout.vue";
-import HelloWorld from "@/components/hello-world.vue";
 
 export default {
   name: "PagesCustomize",
   inject: ["mq"],
   components: {
     layout: Layout,
-    HelloWorld,
   },
   data() {
     return {
