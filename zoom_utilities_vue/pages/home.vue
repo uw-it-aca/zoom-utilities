@@ -13,7 +13,7 @@
           <a href="https://github.com/uw-it-aca/django-vue"
             >Django-Vue</a
           >
-          is a high-opinionated template repository created and used by UWIT to
+          is a template repository created and used by UWIT to
           make our build processes consistent and repeatable through established
           patterns across our CICD architecture.
         </p>
@@ -43,10 +43,10 @@
           <h2>Development</h2>
           <p>
             What's included? This template repository is intended to start you
-            off with AXDD's supported development stack.
+            off with a supported development stack.
           </p>
           <ul>
-            <li>Django (3.2.8)</li>
+            <li>Django (5.2)</li>
             <li>Vue (3.3.1)</li>
             <li>Vite (4.3.5)</li>
           </ul>
