@@ -65,7 +65,7 @@ certs:
   secretName: apps.zoom.uw.edu-ic-certs
 
 cronjob:
-  enabled: true
+  enabled: false
   jobs:
     - name: test1
       schedule: "0,12,24,36,48 14-23 * * 1-5"
