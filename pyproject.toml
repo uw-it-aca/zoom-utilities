@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zoom-utilities"
+dynamic = ["version"]
+description = "UW Zoom utilities"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [
+    {name = "UWIT Student & Educational Technology Services", email = "aca-it@uw.edu"}
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+]
+dependencies = [
+    "django~=5.2",
+    "django-storages[google]",
+    "uw-memcached-clients~=1.0",
+    "uw-restclients-core~=1.4",
+    "uw-restclients-zoom~=0.1",
+    "uw-restclients-gws~=2.3",
+    "django-supporttools~=3.6",
+    "uw-django-saml2~=1.8",
+    "psycopg[c]",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+]
+
+[tool.setuptools]
+packages = ["zoom_utilities"]
+include-package-data = true
+
+[tool.ruff]
+line-length = 88
+exclude = [
+]
+
+[tool.ruff.lint]
+ignore = [
+]
+
+[tool.coverage.run]
+source = ["zoom_utilities"]
+parallel = true
+omit = [
+     "zoom_utilities/tests/*",
+     "zoom_utilities/static/*",
+]
+
+[tool.coverage.paths]
+source = [
+    "zoom_utilities/",
+    "/app/zoom_utilities/",
+]
