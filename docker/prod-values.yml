@@ -1,26 +1,10 @@
 autoscaling:
   enabled: true
-  minReplicas: 2
-  maxReplicas: 4
+  minReplicas: 1
+  maxReplicas: 3
 targetAverageUtilization: 100
 affinity:
    podsSpanNodes: true
-
-ingress:
-  enabled: true
-  tls:
-    zoom-utils:
-      secretName: apps.zoom.uw.edu-ingress-cert
-      hosts:
-        - apps.zoom.uw.edu
-  hosts:
-    zoom-utils:
-      host: apps.zoom.uw.edu
-      paths:
-        - "/"
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    nginx.ingress.kubernetes.io/client-body-buffer-size: "16K"
 
 gateway:
   enabled: true
